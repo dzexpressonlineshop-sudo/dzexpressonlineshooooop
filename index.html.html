@@ -3,96 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DZ Express Online Shop</title>
+  <title>DZ Express Online Shop | المتجر المتميز</title>
+  <!-- خط Cairo المتميز -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <!-- مكتبة أيقونات Font Awesome لإعطاء مظهر احترافي -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <img src="public/logo.jpg" alt="DZ Express" class="logo" />
-      <div class="header-text">
-        <h1>DZ Express Online Shop</h1>
-        <p>توصيل سريع لجميع ولايات الجزائر</p>
+  <header class="main-header">
+    <div class="container header-inner">
+      <div class="brand-side">
+        <img src="public/logo.jpg" alt="DZ Express" class="logo" />
+        <div class="header-text">
+          <h1>DZ Express <span>Online Shop</span></h1>
+          <p>تسوق بكل أمان وتوصيل سريع لجميع الولايات</p>
+        </div>
+      </div>
+      <!-- زر سريع أو أيقونة سلة إضافية للمظهر الاحترافي -->
+      <div class="header-badge">
+        <i class="fa-solid fa-shield-halved"></i> <span>تسوق آمن 100%</span>
       </div>
     </div>
   </header>
 
-  <!-- PRODUCTS SECTION -->
-  <section id="products-section">
-    <h2 class="section-title">🛍️ منتجاتنا</h2>
-    <div id="products-grid" class="products-grid">
-      <!-- Products injected by JS -->
+  <!-- FEATURES BAR (شريط المميزات لزيادة المبيعات والاطمئنان) -->
+  <section class="features-bar">
+    <div class="container features-grid">
+      <div class="feature-item">
+        <i class="fa-solid fa-truck-fast"></i>
+        <div>
+          <h4>توصيل سريع</h4>
+          <p>إلى 58 ولاية مباشرة لباب منزلك</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-hand-holding-dollar"></i>
+        <div>
+          <h4>الدفع عند الاستلام</h4>
+          <p>لا تدفع شيئاً حتى تستلم منتجك</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <i class="fa-solid fa-headset"></i>
+        <div>
+          <h4>دعم متواصل</h4>
+          <p>فريقنا في الخدمة للإجابة على استفساراتكم</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ORDER MODAL -->
+  <!-- PRODUCTS SECTION -->
+  <section id="products-section" class="container">
+    <div class="section-header">
+      <h2 class="section-title"><i class="fa-solid fa-bag-shopping"></i> منتجاتنا المميزة</h2>
+      <p class="section-subtitle">اكتشف أفضل العروض والمنتجات الحصرية المتوفرة الآن</p>
+    </div>
+    <div id="products-grid" class="products-grid">
+      <!-- المنتجات يتم حقنها هنا بواسطة الـ JavaScript -->
+    </div>
+  </section>
+
+  <!-- ORDER MODAL (النافذة المنبثقة للطلب) -->
   <div id="modal-overlay" class="modal-overlay hidden">
     <div class="modal" role="dialog" aria-modal="true">
-      <button class="modal-close" id="modal-close">✕</button>
+      <button class="modal-close" id="modal-close" aria-label="إغلاق النافذة">✕</button>
+
+      <!-- مؤشر الخطوات الاحترافي (Progress Stepper) -->
+      <div class="modal-stepper">
+        <div class="step-indicator active" id="step-ind-1">1 <span>المنتج</span></div>
+        <div class="step-line"></div>
+        <div class="step-indicator" id="step-ind-2">2 <span>المعلومات</span></div>
+      </div>
 
       <!-- Step 1: Product summary -->
       <div id="step-product" class="step active">
-        <div id="modal-product-info"></div>
-        <button class="btn-primary" id="btn-to-info">التالي ← أدخل معلوماتك</button>
+        <div id="modal-product-info" class="product-summary-card"></div>
+        <button class="btn-primary" id="btn-to-info">
+          <span>التالي - أدخل معلوماتك</span> <i class="fa-solid fa-arrow-left"></i>
+        </button>
       </div>
 
       <!-- Step 2: Customer info -->
       <div id="step-info" class="step">
-        <h3>معلومات الطلبية</h3>
-        <label>الاسم الكامل
-          <input type="text" id="customer-name" placeholder="أدخل اسمك الكامل" />
-        </label>
-        <label>رقم الهاتف
-          <input type="tel" id="customer-phone" placeholder="0555 000 000" />
-        </label>
-        <label>الولاية
-          <select id="wilaya-select">
-            <option value="">-- اختر الولاية --</option>
-          </select>
-        </label>
+        <h3 class="step-title"><i class="fa-solid fa-user-pen"></i> معلومات الشحن والطلب</h3>
+        
+        <div class="form-group">
+          <label for="customer-name">الاسم الكامل</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-user input-icon"></i>
+            <input type="text" id="customer-name" placeholder="أدخل اسمك الثلاثي أو الكامل" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="customer-phone">رقم الهاتف</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-phone input-icon"></i>
+            <input type="tel" id="customer-phone" placeholder="0555 000 000" dir="ltr" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="wilaya-select">الولاية</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-location-dot input-icon"></i>
+            <select id="wilaya-select">
+              <option value="">-- اختر ولايتك الحالية --</option>
+            </select>
+          </div>
+        </div>
 
         <!-- Delivery options (shown after wilaya pick) -->
         <div id="delivery-options" class="delivery-options hidden">
-          <p class="delivery-label">نوع التوصيل:</p>
+          <p class="delivery-label">طريقة التوصيل المفضلة:</p>
           <div class="delivery-cards">
             <label class="delivery-card" id="card-bureau">
               <input type="radio" name="delivery" value="bureau" />
-              <span class="card-icon">🏢</span>
-              <span class="card-title">توصيل للمكتب</span>
-              <span class="card-price" id="price-bureau">—</span>
+              <div class="card-content">
+                <i class="fa-solid fa-building-flag card-main-icon"></i>
+                <span class="card-title">توصيل للمكتب</span>
+                <span class="card-price" id="price-bureau">—</span>
+              </div>
             </label>
             <label class="delivery-card" id="card-home">
               <input type="radio" name="delivery" value="home" />
-              <span class="card-icon">🏠</span>
-              <span class="card-title">توصيل للباب</span>
-              <span class="card-price" id="price-home">—</span>
+              <div class="card-content">
+                <i class="fa-solid fa-house-chimney card-main-icon"></i>
+                <span class="card-title">توصيل للبيت</span>
+                <span class="card-price" id="price-home">—</span>
+              </div>
             </label>
           </div>
         </div>
 
-        <!-- Total -->
+        <!-- Total Box -->
         <div id="total-box" class="total-box hidden">
-          <div class="total-row"><span>سعر المنتج</span><span id="total-product">—</span></div>
-          <div class="total-row"><span>سعر التوصيل</span><span id="total-delivery">—</span></div>
-          <div class="total-row total-final"><span>المجموع</span><span id="total-sum">—</span></div>
+          <div class="total-row"><span>سعر المنتج:</span><span id="total-product" class="price-value">—</span></div>
+          <div class="total-row"><span>توصيل إلى الولايات:</span><span id="total-delivery" class="price-value">—</span></div>
+          <div class="total-row total-final"><span>المجموع الإجمالي:</span><span id="total-sum" class="price-value">—</span></div>
         </div>
 
         <div class="step-btns">
-          <button class="btn-secondary" id="btn-back-product">← رجوع</button>
-          <button class="btn-primary" id="btn-confirm">✅ تأكيد الطلبية</button>
+          <button class="btn-secondary" id="btn-back-product"><i class="fa-solid fa-arrow-right"></i> رجوع</button>
+          <button class="btn-primary btn-success" id="btn-confirm"><i class="fa-solid fa-circle-check"></i> تأكيد الطلبية الآن</button>
         </div>
       </div>
 
       <!-- Step 3: Success -->
-      <div id="step-success" class="step">
-        <div class="success-icon">🎉</div>
-        <h3>تم تأكيد طلبيتك!</h3>
-        <p>شكراً لك، سيتم التواصل معك قريباً.</p>
-        <button class="btn-primary" id="btn-new-order">العودة للمتجر</button>
+      <div id="step-success" class="step text-center">
+        <div class="success-animated-icon">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h3 class="success-title">تم تسجيل طلبيتك بنجاح!</h3>
+        <p class="success-desc">شكراً لثقتكم بنا. سيقوم أحد موظفينا بالاتصال بكم عبر الهاتف لتأكيد العنوان والشحن خلال الساعات القادمة.</p>
+        <button class="btn-primary" id="btn-new-order"><i class="fa-solid fa-store"></i> العودة للمتجر وتصفح المزيد</button>
       </div>
     </div>
   </div>
@@ -100,8 +170,14 @@
   <!-- LOADING TOAST -->
   <div id="toast" class="toast hidden"></div>
 
-  <footer>
-    <p>© 2026 DZ Express Online Shop — جميع الحقوق محفوظة</p>
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container footer-content">
+      <p>© 2026 DZ Express Online Shop — جميع الحقوق محفوظة</p>
+      <div class="footer-payments">
+        <small>الدفع عند الاستلام (COD) في كل قطر الجزائر</small>
+      </div>
+    </div>
   </footer>
 
   <script src="app.js"></script>
