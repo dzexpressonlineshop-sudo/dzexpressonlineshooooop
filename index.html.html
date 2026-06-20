@@ -14,6 +14,13 @@
 </head>
 <body>
 
+  <!-- TOP ANNOUNCEMENT BAR (شريط إعلاني علوي لزيادة الثقة) -->
+  <div class="top-bar">
+    <div class="container text-center">
+      <p><i class="fa-solid fa-fire-flame-curved"></i> عروض حصرية لفترة محدودة + الدفع عند الاستلام في 58 ولاية!</p>
+    </div>
+  </div>
+
   <!-- HEADER -->
   <header class="main-header">
     <div class="container header-inner">
@@ -35,21 +42,27 @@
   <section class="features-bar">
     <div class="container features-grid">
       <div class="feature-item">
-        <i class="fa-solid fa-truck-fast"></i>
+        <div class="feature-icon-box">
+          <i class="fa-solid fa-truck-fast"></i>
+        </div>
         <div>
           <h4>توصيل سريع</h4>
           <p>إلى 58 ولاية مباشرة لباب منزلك</p>
         </div>
       </div>
       <div class="feature-item">
-        <i class="fa-solid fa-hand-holding-dollar"></i>
+        <div class="feature-icon-box">
+          <i class="fa-solid fa-hand-holding-dollar"></i>
+        </div>
         <div>
           <h4>الدفع عند الاستلام</h4>
           <p>لا تدفع شيئاً حتى تستلم منتجك</p>
         </div>
       </div>
       <div class="feature-item">
-        <i class="fa-solid fa-headset"></i>
+        <div class="feature-icon-box">
+          <i class="fa-solid fa-headset"></i>
+        </div>
         <div>
           <h4>دعم متواصل</h4>
           <p>فريقنا في الخدمة للإجابة على استفساراتكم</p>
@@ -65,7 +78,7 @@
       <p class="section-subtitle">اكتشف أفضل العروض والمنتجات الحصرية المتوفرة الآن</p>
     </div>
     <div id="products-grid" class="products-grid">
-      <!-- المنتجات يتم حقنها هنا بواسطة الـ JavaScript -->
+      <!-- المنتجات يتم حقنها هنا بواسطة الـ JavaScript بنفس الآلية السابقة -->
     </div>
   </section>
 
@@ -76,9 +89,15 @@
 
       <!-- مؤشر الخطوات الاحترافي (Progress Stepper) -->
       <div class="modal-stepper">
-        <div class="step-indicator active" id="step-ind-1">1 <span>المنتج</span></div>
+        <div class="step-indicator active" id="step-ind-1">
+          <span class="step-num">1</span>
+          <span class="step-text">المنتج</span>
+        </div>
         <div class="step-line"></div>
-        <div class="step-indicator" id="step-ind-2">2 <span>المعلومات</span></div>
+        <div class="step-indicator" id="step-ind-2">
+          <span class="step-num">2</span>
+          <span class="step-text">المعلومات</span>
+        </div>
       </div>
 
       <!-- Step 1: Product summary -->
@@ -94,26 +113,26 @@
         <h3 class="step-title"><i class="fa-solid fa-user-pen"></i> معلومات الشحن والطلب</h3>
         
         <div class="form-group">
-          <label for="customer-name">الاسم الكامل</label>
+          <label for="customer-name">الاسم الكامل <span class="required">*</span></label>
           <div class="input-wrapper">
             <i class="fa-solid fa-user input-icon"></i>
-            <input type="text" id="customer-name" placeholder="أدخل اسمك الثلاثي أو الكامل" />
+            <input type="text" id="customer-name" placeholder="أدخل اسمك الثلاثي أو الكامل" required />
           </div>
         </div>
 
         <div class="form-group">
-          <label for="customer-phone">رقم الهاتف</label>
+          <label for="customer-phone">رقم الهاتف <span class="required">*</span></label>
           <div class="input-wrapper">
             <i class="fa-solid fa-phone input-icon"></i>
-            <input type="tel" id="customer-phone" placeholder="0555 000 000" dir="ltr" />
+            <input type="tel" id="customer-phone" placeholder="0555 000 000" dir="ltr" required />
           </div>
         </div>
 
         <div class="form-group">
-          <label for="wilaya-select">الولاية</label>
+          <label for="wilaya-select">الولاية <span class="required">*</span></label>
           <div class="input-wrapper">
             <i class="fa-solid fa-location-dot input-icon"></i>
-            <select id="wilaya-select">
+            <select id="wilaya-select" required>
               <option value="">-- اختر ولايتك الحالية --</option>
             </select>
           </div>
@@ -121,7 +140,7 @@
 
         <!-- Delivery options (shown after wilaya pick) -->
         <div id="delivery-options" class="delivery-options hidden">
-          <p class="delivery-label">طريقة التوصيل المفضلة:</p>
+          <p class="delivery-label"><i class="fa-solid fa-truck"></i> طريقة التوصيل المفضلة:</p>
           <div class="delivery-cards">
             <label class="delivery-card" id="card-bureau">
               <input type="radio" name="delivery" value="bureau" />
@@ -158,7 +177,7 @@
       <!-- Step 3: Success -->
       <div id="step-success" class="step text-center">
         <div class="success-animated-icon">
-          <i class="fa-solid fa-circle-check"></i>
+          <i class="fa-solid fa-circle-check animate-bounce"></i>
         </div>
         <h3 class="success-title">تم تسجيل طلبيتك بنجاح!</h3>
         <p class="success-desc">شكراً لثقتكم بنا. سيقوم أحد موظفينا بالاتصال بكم عبر الهاتف لتأكيد العنوان والشحن خلال الساعات القادمة.</p>
@@ -175,7 +194,7 @@
     <div class="container footer-content">
       <p>© 2026 DZ Express Online Shop — جميع الحقوق محفوظة</p>
       <div class="footer-payments">
-        <small>الدفع عند الاستلام (COD) في كل قطر الجزائر</small>
+        <i class="fa-solid fa-wallet"></i> <small>الدفع نقدًا عند الاستلام (COD) في كل قطر الجزائر</small>
       </div>
     </div>
   </footer>
